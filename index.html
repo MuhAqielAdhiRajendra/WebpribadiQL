@@ -1,275 +1,272 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web Pribadi Aqiel</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.0/dist/tailwind.min.css" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @layer utilities {
-      .scroll-smooth {
-        scroll-behavior: smooth;
-      }
-    }
-    /* Gradien untuk Hero Section */
-    .hero-bg {
-      background: linear-gradient(135deg, #6ee7b7, #3b82f6);
-    }
-    /* Efek untuk card proyek */
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease-in-out;
-    }
-    /* Animasi pada tombol */
-    .hover-zoom:hover {
-      transform: scale(1.1);
-    }
-    /* Efek Modal */
-    .modal-transition {
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Aqiel | Pengembang & Kreator</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#0a0a0a',
+                        'secondary-dark': '#1f2937', /* Gray-800 */
+                        'accent': '#00ADB5', /* Warna Teal/Cyan Baru */
+                        'accent-dark': '#007C82',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* Efek Navbar Modern (Solid + Blur) */
+        .navbar-transparent {
+            background: rgba(10, 10, 10, 0); /* background 0% opacity */
+            backdrop-filter: blur(0px); 
+            -webkit-backdrop-filter: blur(0px);
+            transition: all 0.4s ease; /* Transisi untuk semua properti */
+        }
+        .navbar-solid {
+            background: rgba(10, 10, 10, 0.8); /* primary-dark dengan opasitas */
+            backdrop-filter: blur(8px); /* Efek blur modern */
+            -webkit-backdrop-filter: blur(8px);
+            transition: all 0.4s ease; /* Transisi untuk semua properti */
+        }
+        
+        /* Gradient untuk latar belakang Hero */
+        .hero-bg {
+            background: radial-gradient(circle at 10% 20%, #0a0a0a 0%, #1f2937 80%);
+        }
+        /* Efek Teks Typing/Writter (Simulasi CSS) */
+        .typing-effect::after {
+            content: '|';
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="bg-gray-100 text-gray-800">
-  
-<!-- Tombol WhatsApp Mengambang -->
-<a href="https://wa.me/62085865765469" target="_blank"
-   class="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all z-50 transform hover:scale-110">
-  <!-- Ikon WhatsApp (SVG) -->
-  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M20.52 3.48A11.8 11.8 0 0012 0 11.88 11.88 0 000 11.94a11.76 11.76 0 001.65 6.09L0 24l6.19-1.62A11.91 11.91 0 0012 24 11.87 11.87 0 0024 12.06a11.73 11.73 0 00-3.48-8.58zM12 21.64a9.65 9.65 0 01-4.93-1.32l-.35-.21-3.67.96 1-3.57-.23-.37a9.72 9.72 0 0115-11.44A9.66 9.66 0 0121.64 12 9.64 9.64 0 0112 21.64zm5.3-7.38c-.29-.14-1.74-.86-2-.96s-.46-.14-.66.14-.76.96-.93 1.16-.34.21-.62.07a7.79 7.79 0 01-2.28-1.41 8.57 8.57 0 01-1.59-2 .7.7 0 01.21-.94c.2-.21.48-.55.69-.83s.28-.48.42-.76a.77.77 0 00-.04-.76c-.13-.14-.66-1.59-.91-2.18s-.48-.5-.66-.5h-.57a1.1 1.1 0 00-.8.38 3.34 3.34 0 00-1 2.48 5.82 5.82 0 001.22 3.07 13.36 13.36 0 004.72 4.72c2.32 1.39 3.12 1.51 3.67 1.42a2.84 2.84 0 001.87-1.32 2.34 2.34 0 00.17-1.32c-.07-.13-.27-.21-.56-.35z"/>
-  </svg>
-</a>
 
-<!-- Navbar -->
-<nav class="bg-white shadow-lg p-4 sticky top-0 z-50">
-  <div class="container mx-auto flex justify-between items-center">
-    <h1 class="text-2xl font-bold text-blue-600">Web Pribadi Aqiel</h1>
+<body class="bg-primary-dark text-white font-sans transition-colors duration-500">
 
-    <!-- Hamburger Icon for small screens -->
-    <div class="lg:hidden">
-      <button data-collapse-toggle="navbar" type="button" class="text-gray-700 focus:outline-none" aria-controls="navbar" aria-expanded="false">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
+<nav id="navbar" class="fixed top-0 w-full z-50 navbar-transparent">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6 lg:px-12">
+        <h1 class="text-3xl font-extrabold text-accent">AQIEL <span class="text-white">.DEV</span></h1>
+        
+        <div class="flex items-center space-x-6">
+            <div class="hidden lg:flex space-x-8 text-lg font-medium">
+                <a href="#about" class="hover:text-accent transition-colors">Tentang</a>
+                <a href="#projects" class="hover:text-accent transition-colors">Projek</a>
+                <a href="#certificate" class="hover:text-accent transition-colors">Sertifikat</a>
+                <a href="#contact" class="hover:text-accent transition-colors">Kontak</a>
+            </div>
+        </div>
     </div>
-
-    <!-- Navbar Links -->
-    <div class="hidden lg:flex space-x-6 text-lg" id="navbar">
-      <a href="#about" class="hover:text-blue-500 transition">Tentang</a>
-      <a href="#projects" class="hover:text-blue-500 transition">Projek</a>
-      <a href="#certificate" class="hover:text-blue-500 transition">Sertifikat</a>
-      <a href="#contact" class="hover:text-blue-500 transition">Kontak</a>
-    </div>
-  </div>
-
-  <!-- Mobile Menu (Visible on small screens) -->
-  <div class="lg:hidden bg-white shadow p-4 space-y-4 hidden" id="mobile-menu">
-    <a href="#about" class="block text-gray-700 hover:text-blue-500">Tentang</a>
-    <a href="#projects" class="block text-gray-700 hover:text-blue-500">Projek</a>
-    <a href="#certificate" class="block text-gray-700 hover:text-blue-500">Sertifikat</a>
-    <a href="#contact" class="block text-gray-700 hover:text-blue-500">Kontak</a>
-  </div>
 </nav>
 
-<script>
-  // Menampilkan menu hamburger ketika tombol diklik
-  document.querySelector('[data-collapse-toggle="navbar"]').addEventListener('click', function() {
-    document.getElementById('mobile-menu').classList.toggle('hidden');
-  });
-</script>
-
-<!-- Hero Section -->
-<section class="hero-bg text-white text-center py-20">
-  <h2 class="text-5xl font-extrabold mb-6 animate__animated animate__fadeIn">Halo, Saya Muhammad Aqiel Adhi Rajendra</h2>
-  <p class="text-lg mb-6">Selamat datang Di web pribadi Aqiel</p>
-  <a href="#projects" class="bg-blue-600 hover:bg-blue-700 py-3 px-8 rounded-lg text-xl transform transition-all hover:scale-105">Lihat Project</a>
+<section id="hero" class="h-screen flex flex-col justify-center items-center text-center hero-bg relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-accent opacity-10 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+    <h2 data-aos="fade-up" class="text-6xl lg:text-8xl font-black mb-4 tracking-tighter text-white">
+        Hello, I'm <span class="text-accent">Aqiel</span>.
+    </h2>
+    <p data-aos="fade-up" data-aos-delay="200" class="text-2xl lg:text-3xl mb-8 text-gray-300 font-light typing-effect">
+        Full-Stack Developer, Game Creator, & Digital Marketer.
+    </p>
+    <a href="#projects" data-aos="zoom-in" data-aos-delay="400" 
+        class="bg-accent text-primary-dark py-3 px-10 rounded-full text-xl font-bold shadow-2xl transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-accent/50 border-2 border-accent">
+        <i class="fas fa-arrow-right mr-2"></i> EXPLORE MY WORK
+    </a>
 </section>
 
-<!-- Tentang Saya -->
-<section id="about" class="container mx-auto py-20 text-center">
-  <h3 class="text-3xl font-bold mb-10">Tentang Saya</h3>
+<hr class="border-gray-800 max-w-4xl mx-auto">
 
-  <!-- Container untuk Foto Profil dan Teks -->
-  <div class="flex justify-center items-center flex-col md:flex-row md:space-x-8 space-y-6 md:space-y-0">
-    <!-- Foto Profil -->
-    <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-blue-500 shadow-lg">
-      <img src="pic/fotoku.jpg" alt="Foto Profil" class="w-full h-full object-cover">
+<section id="about" class="container mx-auto py-24 px-6 lg:px-12 text-center">
+    <h3 class="text-4xl font-extrabold mb-12 text-gray-100" data-aos="fade-down"><span class="text-accent">#</span> Tentang Saya</h3>
+    <div class="flex flex-col md:flex-row justify-center items-center gap-12">
+        <div data-aos="zoom-in" class="relative w-56 h-56 flex-shrink-0">
+            <div class="w-full h-full rounded-full overflow-hidden border-4 border-accent shadow-2xl shadow-accent/40 transform hover:scale-105 transition duration-300">
+                <img src="pic/fotoku.jpg" alt="Foto Profil Muhammad Aqiel" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500">
+            </div>
+            <span class="absolute bottom-0 right-0 bg-green-500 text-white text-xs px-3 py-1 rounded-full font-bold border-2 border-primary-dark">Available</span>
+        </div>
+        <div data-aos="fade-left" class="max-w-2xl text-left">
+            <p class="text-xl leading-relaxed text-gray-300 mb-4">
+                Lulusan SMKN 6 Surakarta Jurusan RPL yang bersemangat dalam membangun solusi digital.
+            </p>
+            <p class="text-lg leading-relaxed text-gray-400">
+                Fokus utama saya meliputi Web Development, Game Development, dan Aplikasi Mobile. Saya juga memiliki pemahaman strategis dalam Digital Marketing, termasuk Affiliate dan Online Ad Management, yang membantu menjembatani teknologi dengan bisnis.
+            </p>
+            <div class="mt-6 text-xl flex flex-wrap gap-4 justify-start">
+                <span class="bg-gray-800 text-accent px-3 py-1 rounded-full text-sm font-semibold shadow-md">#WebDev</span>
+                <span class="bg-gray-800 text-accent px-3 py-1 rounded-full text-sm font-semibold shadow-md">#GameDev</span>
+                <span class="bg-gray-800 text-accent px-3 py-1 rounded-full text-sm font-semibold shadow-md">#DigitalMarketing</span>
+                <span class="bg-gray-800 text-accent px-3 py-1 rounded-full text-sm font-semibold shadow-md">#Firebase</span>
+            </div>
+        </div>
     </div>
-
-    <!-- Teks Tentang Saya -->
-    <div class="max-w-2xl">
-      <p class="text-lg">
-        Saya lulusan SMKN 6 Surakarta Jurusan Rekayasa Perangkat Lunak. Mempunyai keahlian Pemrograman WEB, Pemrograman Game, Pembuatan aplikasi. Saya memahami dasar-dasar digital marketing seperti tata cara yang benar untuk affiliate ditiktok, Hook agar konsumen tertarik, memosting iklan dengan meta ads.
-      </p>
-    </div>
-  </div>
 </section>
 
-
-
-  <!-- Roadmap Pendidikan -->
-<section id="education" class="container mx-auto py-20">
-  <h3 class="text-3xl font-bold text-center mb-10">Pendidikan</h3>
-  <div class="max-w-4xl mx-auto">
-    <div class="relative border-l-4 border-blue-500">
-      <!-- Step 1 -->
-      <div class="flex items-center mb-8">
-        <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center -ml-4">
-          <span class="text-xl font-bold">1</span>
-        </div>
-        <div class="ml-6">
-          <h4 class="text-lg font-semibold">SD PAJANG 1 Surakarta</h4>
-          <p class="text-sm text-gray-600">2013 - 2019</p>
-        </div>
-      </div>
-
-      <!-- Step 2 -->
-      <div class="flex items-center mb-8">
-        <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center -ml-4">
-          <span class="text-xl font-bold">2</span>
-        </div>
-        <div class="ml-6">
-          <h4 class="text-lg font-semibold">SMP Negeri 9 Surakarta</h4>
-          <p class="text-gray-700">Aktif Dalam Mengikuti kegiatan PMR</p>
-          <p class="text-sm text-gray-600">2019 - 2022</p>
-        </div>
-      </div>
-
-      <!-- Step 3 -->
-      <div class="flex items-center mb-8">
-        <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center -ml-4">
-          <span class="text-xl font-bold">3</span>
-        </div>
-        <div class="ml-6">
-          <h4 class="text-lg font-semibold">SMKN 6 Surakarta</h4>
-          <p class="text-gray-700">Jurusan : Rekayasa Perangkat Lunak</p>
-          <p class="text-gray-700">Ketua Paskibra  Tahun 2022, Anggota Osis Tahun 2022</p>
-          <p class="text-sm text-gray-600">2022 - 2025</p>
-        </div>
-      </div>
-
-</section>
-
-  <!-- Penampil CV PDF -->
-  <div class="container mx-auto mt-16 px-4">
-    <div class="w-full h-[600px] border rounded-lg overflow-hidden shadow-lg">
-      <iframe src="pdf/cv3.pdf" class="w-full h-full" frameborder="0"></iframe>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- Projek -->
-<section id="projects" class="bg-white py-20">
-  <h3 class="text-3xl font-bold text-center mb-10">Projek Saya</h3>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 container mx-auto px-4">
-    <!-- Card 1 -->
-    <div class="bg-gray-100 p-6 rounded-lg shadow-lg project-card">
-      <h4 class="text-2xl font-semibold mb-2">WEB PPDB</h4>
-      <p class="mb-4">Di web PPDB ini saya menggunakan Realtime database pada firebase untuk menyimpan data dan storage untuk file gambarnya.</p>
-      <a href="https://udinss13123214.github.io/PENDAFTARAN-PPDB---AQIEL/" class="text-blue-500 hover:underline">Lihat Detail</a>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="bg-gray-100 p-6 rounded-lg shadow-lg project-card">
-      <h4 class="text-2xl font-semibold mb-2">Aplikasi Android</h4>
-      <p class="mb-4">Kumpulan Project Aplikasi yang saya buat selama sekolah.</p>
-      <a href="https://drive.google.com/drive/folders/1IJRgte0KuIFjXUIYdj8ZHq4J7QUKCNhj" class="text-blue-500 hover:underline">Lihat Detail</a>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="bg-gray-100 p-6 rounded-lg shadow-lg project-card">
-      <h4 class="text-2xl font-semibold mb-2">Preview Aplikasi PPDB</h4>
-      <p class="mb-4">Preview aplikasi PPDB dapat mendaftar, metode eleminasi, CRUD</p>
-      <a href="https://youtube.com/shorts/IlDsvYQYHYA?feature=share" class="text-blue-500 hover:underline">Lihat Detail</a>
-    </div>
-  </div>
-</section>
-
-<!-- Sertifikat Penghargaan -->
-<section id="certificate" class="container mx-auto py-20 px-4">
-  <h3 class="text-3xl font-bold text-center mb-10">Sertifikat Penghargaan</h3>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
-    <!-- Sertifikat 1 -->
-    <div class="flex flex-col items-center">
-      <div class="w-64 h-40 overflow-hidden rounded-lg shadow-lg mb-4 hover:scale-105 transform transition-all">
-        <img src="pic/sertifosis.jpg" alt="Sertifikat OSIS" class="w-full h-full object-cover object-top">
-      </div>
-      <button onclick="document.getElementById('modal-osis').classList.remove('hidden')" 
-              class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-all">
-        Preview
-      </button>
-      <a href="https://drive.google.com/drive/folders/1fDEEsqRH86dSimR0kjAiAwK35s4UPJHL" target="_blank" 
-         class="text-blue-500 hover:underline mt-2 text-sm">Lihat di Google Drive</a>
-    </div>
-    <!-- Sertifikat 2 -->
-    <div class="flex flex-col items-center">
-      <div class="w-64 h-40 overflow-hidden rounded-lg shadow-lg mb-4 hover:scale-105 transform transition-all">
-        <img src="pic/sertifpkl.jpg" alt="Sertifikat PKL" class="w-full h-full object-cover object-top">
-      </div>
-      <button onclick="document.getElementById('modal-pkl').classList.remove('hidden')" 
-              class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-all">
-        Preview
-      </button>
-      <a href="https://drive.google.com/drive/folders/1fDEEsqRH86dSimR0kjAiAwK35s4UPJHL" target="_blank" 
-         class="text-blue-500 hover:underline mt-2 text-sm">Lihat di Google Drive</a>
-    </div>
-    <!-- Sertifikat 3 -->
-    <div class="flex flex-col items-center">
-      <div class="w-64 h-40 overflow-hidden rounded-lg shadow-lg mb-4 hover:scale-105 transform transition-all">
-        <img src="pic/sertiftoek.jpg" alt="Sertifikat TOEIC" class="w-full h-full object-cover object-top">
-      </div>
-      <button onclick="document.getElementById('modal-toek').classList.remove('hidden')" 
-              class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-all">
-        Preview
-      </button>
-      <a href="https://drive.google.com/drive/folders/1fDEEsqRH86dSimR0kjAiAwK35s4UPJHL" target="_blank" 
-         class="text-blue-500 hover:underline mt-2 text-sm">Lihat di Google Drive</a>
-    </div>
-  </div>
-</section>
-<!-- Kontak -->
-<section id="contact" class="container mx-auto py-20 px-4">
-  <h3 class="text-3xl font-bold text-center mb-10">Hubungi saya melalui:</h3>
-  <div class="flex flex-col items-center justify-center gap-6">
+<section id="projects" class="bg-secondary-dark py-24 px-6 lg:px-12">
+    <h3 class="text-4xl font-extrabold text-center mb-16 text-gray-100" data-aos="fade-down"><span class="text-accent">#</span> Projek Pilihan</h3>
     
-    
-    <!-- Info Kontak -->
-    <div class="text-center">
-      <div class="space-y-2">
-        <a href="https://wa.me/62085865765469" target="_blank" class="text-green-600 hover:underline block">
-          📱 WhatsApp: +62 0858-6576-5469
-        </a>
-        <a href="https://www.linkedin.com/in/m-aqiel-adhi-b19308312?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="text-blue-500 hover:underline block">
-          💼 LinkedIn: M Aqiel Adhi
-        </a>
-        <a href="https://www.instagram.com/aqieladhir?igsh=NGYzbmJweHFsOWF1" target="_blank" class="text-pink-500 hover:underline block">
-          📸 Instagram: @aqieladhir
-        </a>
-        <p class="text-lg mt-4 font-semibold">📍 Alamat: </p>
-        <p class="text-gray-700">Kadipaten, Jl. Sawunggaling No.II, RT.01/RW.08, Pajang, Kec. Laweyan, Kota Surakarta, Jawa Tengah 57146</p>
-        <p class="text-gray-700">Spanduk Cemal Cemol Rumah Warna Crem</p>
-        <div class="mt-2">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.0746943082568!2d110.78608730674667!3d-7.566835645929376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a15fcf24b1409%3A0x768c25d004f4c9b4!2sTPA%20Amanah%20Bunda!5e0!3m2!1sid!2sid!4v1746616697939!5m2!1sid!2sid"
-            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 container mx-auto">
+        
+        <div data-aos="flip-up" class="p-8 rounded-2xl bg-gray-800 shadow-xl border border-gray-700 hover:border-accent transform hover:-translate-y-2 transition duration-500">
+            <i class="fas fa-globe text-4xl text-accent mb-4"></i>
+            <h4 class="text-2xl font-bold mb-2 text-white">WEB PPDB Sekolah</h4>
+            <span class="text-sm font-medium text-gray-400 bg-gray-700 px-3 py-1 rounded-full mb-3 inline-block">Firebase Realtime DB</span>
+            <p class="mb-4 text-gray-300 mt-2">Sistem Pendaftaran Peserta Didik Baru (PPDB) yang efisien, mengandalkan **Firebase Realtime Database & Storage** untuk *scalability* dan data *real-time*.</p>
+            <a href="https://udinss13123214.github.io/PENDAFTARAN-PPDB---AQIEL/" target="_blank" class="inline-flex items-center text-accent font-semibold hover:text-white transition group">
+                Lihat Studi Kasus 
+                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+            </a>
         </div>
-      </div>
+        
+        <div data-aos="flip-up" data-aos-delay="200" class="p-8 rounded-2xl bg-gray-800 shadow-xl border border-gray-700 hover:border-accent transform hover:-translate-y-2 transition duration-500">
+            <i class="fas fa-mobile-alt text-4xl text-accent mb-4"></i>
+            <h4 class="text-2xl font-bold mb-2 text-white">Kumpulan Aplikasi Mobile</h4>
+            <span class="text-sm font-medium text-gray-400 bg-gray-700 px-3 py-1 rounded-full mb-3 inline-block">Android/Kotlin</span>
+            <p class="mb-4 text-gray-300 mt-2">Portofolio proyek Android dari berbagai kebutuhan, menunjukkan pemahaman saya tentang UI/UX mobile dan integrasi API.</p>
+            <a href="https://drive.google.com/drive/folders/1IJRgte0KuIFjXUIYdj8ZHq4J7QUKCNhj" target="_blank" class="inline-flex items-center text-accent font-semibold hover:text-white transition group">
+                Lihat Studi Kasus 
+                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+            </a>
+        </div>
+        
+        <div data-aos="flip-up" data-aos-delay="400" class="p-8 rounded-2xl bg-gray-800 shadow-xl border border-gray-700 hover:border-accent transform hover:-translate-y-2 transition duration-500">
+            <i class="fas fa-search-dollar text-4xl text-accent mb-4"></i>
+            <h4 class="text-2xl font-bold mb-2 text-white">Sistem Seleksi Siswa</h4>
+            <span class="text-sm font-medium text-gray-400 bg-gray-700 px-3 py-1 rounded-full mb-3 inline-block">CRUD & Metode Eliminasi</span>
+            <p class="mb-4 text-gray-300 mt-2">Demo fungsionalitas CRUD, implementasi metode eliminasi, dan simulasi proses pendaftaran siswa yang kompleks.</p>
+            <a href="https://youtube.com/shorts/IlDsvYQYHYA?feature=share" target="_blank" class="inline-flex items-center text-accent font-semibold hover:text-white transition group">
+                Lihat Studi Kasus 
+                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+            </a>
+        </div>
+
+        <div data-aos="flip-up" class="p-8 rounded-2xl bg-gray-800 shadow-xl border border-gray-700 hover:border-accent transform hover:-translate-y-2 transition duration-500">
+            <i class="fas fa-ring text-4xl text-accent mb-4"></i>
+            <h4 class="text-2xl font-bold mb-2 text-white">Roblox: Gedung Pernikahan</h4>
+            <span class="text-sm font-medium text-gray-400 bg-gray-700 px-3 py-1 rounded-full mb-3 inline-block">Roblox Studio / GameDev</span>
+            <p class="mb-4 text-gray-300 mt-2">Proyek game/experience di platform Roblox isi nya hanya bangunan pernikahan</p>
+            <a href="https://www.roblox.com/share?code=8df4d7c70a06f042bb14f2a35d14458e&type=ExperienceDetails&stamp=1760934624688" target="_blank" class="inline-flex items-center text-accent font-semibold hover:text-white transition group">
+                Lihat Studi Kasus 
+                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+            </a>
+        </div>
+        
+        <div data-aos="flip-up" data-aos-delay="200" class="p-8 rounded-2xl bg-gray-800 shadow-xl border border-gray-700 hover:border-accent transform hover:-translate-y-2 transition duration-500">
+            <i class="fas fa-mountain text-4xl text-accent mb-4"></i>
+            <h4 class="text-2xl font-bold mb-2 text-white">Roblox: Mount Arsen</h4>
+            <span class="text-sm font-medium text-gray-400 bg-gray-700 px-3 py-1 rounded-full mb-3 inline-block">Roblox Studio / GameDev</span>
+            <p class="mb-4 text-gray-300 mt-2">Proyek game Roblox bergenre eksplorasi dan petualangan dengan tema pegunungan. ada nya Sanity,Stamina, Fall Damage, kehausan menambah kesulitan gunung ini</p>
+            <a href="https://www.roblox.com/share?code=4859372837753546a4dd3b710c39af2b&type=ExperienceDetails&stamp=1760934668321" target="_blank" class="inline-flex items-center text-accent font-semibold hover:text-white transition group">
+                Lihat Studi Kasus 
+                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+            </a>
+        </div>
+        
     </div>
-    
-  </div>
 </section>
 
-<!-- Footer -->
-<footer class="text-center p-6 bg-gradient-to-t from-blue-600 to-blue-500 text-white mt-10">
-  <p>© 2025 Muhammad Aqiel Adhi Rajendra.</p>
+<section id="certificate" class="container mx-auto py-24 px-6 lg:px-12 text-center">
+    <h3 class="text-4xl font-extrabold mb-12 text-gray-100" data-aos="fade-down"><span class="text-accent">#</span> Validasi Kompetensi</h3>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-800 p-6 rounded-xl shadow-xl hover:shadow-accent/30 transition duration-300" data-aos="fade-up">
+            <img src="pic/sertifosis.jpg" alt="Sertifikat Kepengurusan" class="w-full h-56 object-cover rounded-lg mb-4 opacity-80 hover:opacity-100 transition">
+            <p class="text-lg font-semibold mb-3 text-gray-200">Kepengurusan OSIS/Organisasi Sekolah</p>
+            <button onclick="openModal('pic/sertifosis.jpg')" 
+                class="mt-3 px-6 py-2 bg-accent text-primary-dark rounded-full font-bold hover:bg-accent-dark transition transform hover:scale-95">
+                <i class="fas fa-eye mr-2"></i> Lihat Detail
+            </button>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-xl shadow-xl hover:shadow-accent/30 transition duration-300" data-aos="fade-up" data-aos-delay="150">
+            <img src="pic/sertifpkl.jpg" alt="Sertifikat PKL" class="w-full h-56 object-cover rounded-lg mb-4 opacity-80 hover:opacity-100 transition">
+            <p class="text-lg font-semibold mb-3 text-gray-200">Pengalaman Kerja Lapangan (PKL)</p>
+            <button onclick="openModal('pic/sertifpkl.jpg')" 
+                class="mt-3 px-6 py-2 bg-accent text-primary-dark rounded-full font-bold hover:bg-accent-dark transition transform hover:scale-95">
+                <i class="fas fa-eye mr-2"></i> Lihat Detail
+            </button>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-xl shadow-xl hover:shadow-accent/30 transition duration-300" data-aos="fade-up" data-aos-delay="300">
+            <img src="pic/BNSP.jpg" alt="Sertifikat BNSP" class="w-full h-56 object-cover rounded-lg mb-4 opacity-80 hover:opacity-100 transition">
+            <p class="text-lg font-semibold mb-3 text-gray-200">Sertifikasi Kompetensi BNSP</p>
+            <button onclick="openModal('pic/BNSP.jpg')" 
+                class="mt-3 px-6 py-2 bg-accent text-primary-dark rounded-full font-bold hover:bg-accent-dark transition transform hover:scale-95">
+                <i class="fas fa-eye mr-2"></i> Lihat Detail
+            </button>
+        </div>
+    </div>
+</section>
+
+<div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-90 flex justify-center items-center z-50 p-4 backdrop-blur-sm">
+    <div class="relative bg-gray-900 p-6 rounded-lg shadow-2xl max-w-5xl w-full flex justify-center">
+        <button onclick="closeModal()" 
+            class="absolute top-2 right-2 text-white bg-red-600 rounded-full w-8 h-8 flex items-center justify-center text-xl font-bold hover:bg-red-500 transition">&times;</button>
+        <img id="modalImage" src="" alt="Detail Sertifikat" 
+            class="max-w-full max-h-[90vh] object-contain rounded-lg">
+    </div>
+</div>
+
+<section id="contact" class="bg-primary-dark py-24 px-6 lg:px-12 text-center border-t border-gray-800">
+    <h3 class="text-4xl font-extrabold mb-8 text-gray-100" data-aos="fade-down"><span class="text-accent">#</span> Mari Berkolaborasi</h3>
+    <p data-aos="fade-up" class="mb-12 text-xl text-gray-300 max-w-2xl mx-auto">
+        Tertarik untuk bekerja sama? Saya selalu terbuka untuk peluang proyek baru yang menantang dan inovatif.
+    </p>
+    <div class="flex flex-wrap justify-center gap-6" data-aos="zoom-in">
+        <a href="https://wa.me/6285865765469" target="_blank" class="bg-green-600 text-white px-8 py-4 rounded-full shadow-lg hover:bg-green-500 transition transform hover:scale-105 font-bold flex items-center">
+            <i class="fab fa-whatsapp mr-3 text-2xl"></i> Chat via WhatsApp
+        </a>
+        <a href="https://www.linkedin.com/in/m-aqiel-adhi-rajendra/" target="_blank" class="bg-blue-700 text-white px-8 py-4 rounded-full shadow-lg hover:bg-blue-600 transition transform hover:scale-105 font-bold flex items-center">
+            <i class="fab fa-linkedin-in mr-3 text-2xl"></i> Kunjungi LinkedIn
+        </a>
+        <a href="mailto:aqieladhi1506@gmail.com" class="bg-gray-600 text-white px-8 py-4 rounded-full shadow-lg hover:bg-gray-500 transition transform hover:scale-105 font-bold flex items-center">
+            <i class="fas fa-envelope mr-3 text-2xl"></i> Kirim Email
+        </a>
+    </div>
+</section>
+
+<footer class="text-center p-8 bg-black border-t border-gray-900 text-gray-500">
+    <p>© 2025 Muhammad Aqiel Adhi Rajendra. <span class="text-accent">Code with Passion.</span></p>
 </footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true, offset: 50 });
+
+    const navbar = document.getElementById("navbar");
+    
+    // Fungsi Navbar scroll effect
+    window.addEventListener("scroll", function() {
+        if (window.scrollY > 80) {
+            navbar.classList.add("navbar-solid");
+            navbar.classList.remove("navbar-transparent");
+        } else {
+            navbar.classList.add("navbar-transparent");
+            navbar.classList.remove("navbar-solid");
+        }
+    });
+
+    // Modal
+    function openModal(src) {
+        document.getElementById("modalImage").src = src;
+        document.getElementById("modal").classList.remove("hidden");
+    }
+    function closeModal() {
+        document.getElementById("modal").classList.add("hidden");
+    }
+    document.getElementById("modal").addEventListener("click", function(e) {
+        if (e.target === this) closeModal();
+    });
+</script>
 
 </body>
 </html>
